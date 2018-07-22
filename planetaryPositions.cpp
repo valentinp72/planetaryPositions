@@ -3,5 +3,7 @@
 #include "Sun.hpp"
 
 int main() {
-	Sun sun = Sun(-3543.0);	
+	double jd = 2458322.447917;
+	double  d = jd - 2451543.5;
+	Sun sun = Sun(d);	
 }

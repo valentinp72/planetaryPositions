@@ -8,7 +8,7 @@ OrbitalElement::OrbitalElement(double base, double coefficient, bool positive) {
 
 double OrbitalElement::compute(double date) {
 	if(coefficient != 0.0) {
-		long double factor = coefficient * date;
+		double factor = coefficient * date;
 		result = (positive) ? base + factor : base - factor;
 	}
 	else {
@@ -19,9 +19,7 @@ double OrbitalElement::compute(double date) {
 }
 
 void OrbitalElement::normalizeAngle() {
-	if(result < 0 || result > 360) {
-		result = result - floor(result / 360.0) * 360.0;	
-	}
+	result = Helper::normalizeAngle(result);
 }
 
 double OrbitalElement::getResult() {

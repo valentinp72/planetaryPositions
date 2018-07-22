@@ -45,6 +45,7 @@ class Object {
 		OrbitalElement * ecl; // obliquity of the ecliptic
 
 		// Related Orbital elements
+		double E; // eccentric anomaly
 };
 
 

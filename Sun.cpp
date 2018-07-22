@@ -12,6 +12,7 @@ Sun::Sun(
 	OrbitalElement ecl = OrbitalElement(23.4393, 3.563E-7, false);
 	this->setPrimaryOEs(&N, &i, &w, &a, &e, &M, &ecl);
 	this->computePrimaryOE();
+	this->computeEccentricAnomaly();
 
 	printf("N = %f\n", N.getResult());
 	printf("i = %f\n", i.getResult());
@@ -19,4 +20,36 @@ Sun::Sun(
 	printf("a = %f\n", a.getResult());
 	printf("e = %f\n", e.getResult());
 	printf("M = %f\n", M.getResult());
+	printf("ecl = %f\n", ecl.getResult());
+	printf("E = %f\n", E);
+
+	double x = cosd(E) - e.getResult();
+	double y = sind(E) * sqrt(1 - (e.getResult()*e.getResult()));
+
+	printf("x = %f\n", x);
+	printf("y = %f\n", y);
+
+	double r = sqrt(x*x + y*y);
+	double v = Helper::normalizeAngle(atan2d(y, x));
+	printf("v = %f\n", v);
+	double longitude = Helper::normalizeAngle(v + w.getResult());
+
+	printf("lon = %f\n", longitude);
+	printf("r   = %f\n", r);
+
+	x = r * cosd(longitude);
+	y = r * sind(longitude);
+	double z = 0.0;
+
+
+	double xequat = x;
+	double yequat = y * cosd(ecl.getResult()) - 0.0 * sind(ecl.getResult());
+	double zequat = y * sind(ecl.getResult()) + 0.0 * cosd(ecl.getResult());
+
+	double RA  = atan2d(yequat, xequat);
+	double Dec = atan2d(zequat, sqrt(xequat * xequat + yequat * yequat));
+
+	printf("RA  = %f\n", RA);
+	printf("Dec = %f\n", Dec);
+
 }

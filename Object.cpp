@@ -43,3 +43,8 @@ void Object::computePrimaryOE() {
 	w->normalizeAngle();
 	M->normalizeAngle();
 }
+
+
+void Object::computeEccentricAnomaly() {
+	this->E = M->getResult() + (180 / M_PI) * e->getResult() * sind(M->getResult()) * (1 + e->getResult() * cosd(M->getResult()));
+}

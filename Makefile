@@ -3,7 +3,7 @@ CFLAGS = -Wall
 EXEC_NAME = planetaryPositions 
 INCLUDES =
 LIBS =
-OBJ_FILES = Object.o Sun.o OrbitalElement.o planetaryPositions.o
+OBJ_FILES = Helper.o Object.o Sun.o OrbitalElement.o planetaryPositions.o
 INSTALL_DIR = /usr/bin
 
 all : $(EXEC_NAME)

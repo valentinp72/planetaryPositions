@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <math.h> 
 
+#include "Helper.hpp"
+
 class OrbitalElement {
 	public:
 		OrbitalElement(double base, double coefficient, bool positive);
