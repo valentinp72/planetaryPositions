@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall
+CFLAGS = -Wall 
 EXEC_NAME = planetaryPositions 
 INCLUDES =
 LIBS =

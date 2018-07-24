@@ -6,6 +6,7 @@
 class Object {
 	public:
 		Object(double day);
+		void computeAll();
 
 		void setPrimaryOEs(
 				OrbitalElement * N, 
@@ -18,6 +19,9 @@ class Object {
 		void setDay(double day);
 		double getDay();
 
+		double getRA();
+		double getDec();
+
 	protected:
 
 		/***********
@@ -28,6 +32,14 @@ class Object {
 		void computeRelatedOE(); // compute related orbital elements
 		
 		void computeEccentricAnomaly();
+		void computeRectangularCoordinates();
+		void computeTrueAnomaly();
+		void computeDistance();
+		void computeLongitude();
+		void computeGeocentricCoords();
+		void computeEquatorialCoords();
+		void computeRADec();
+
 
 		/*************
 		 * ARGUMENTS *
@@ -45,7 +57,18 @@ class Object {
 		OrbitalElement * ecl; // obliquity of the ecliptic
 
 		// Related Orbital elements
-		double E; // eccentric anomaly
+		double E;      // eccentric anomaly
+		double x;      // x rectangular coordinate
+		double y;      // y rectangular coordinate
+		double z;      // z rectangular coordinate
+		double v;      // true anomaly
+		double r;      // distance
+		double lon;    // longitude
+		double xequat; // x equatorial coordinate
+		double yequat; // y equatorial coordinate
+		double zequat; // z equatorial coordinate
+		double RA;     // Right Ascension
+		double Dec;    // Declination
 };
 
 
